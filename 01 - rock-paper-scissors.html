@@ -4,6 +4,7 @@
 <head>
     <title>Rock Paper Scissors</title>
     <style></style>
+</head>
 
 <body>
     <p>Rock Paper Scissors</p>
@@ -13,8 +14,7 @@
                 yourChoice = rock;
                 cpuChoice = (Math.floor(Math.random() * 3) + 1);
                 game(cnt, yourChoice, cpuChoice, cpuRes(cpuChoice), yRock );
-                alert(`${printAlert(yourChoice,cpuChoice)}
-Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}`)
+                alert(alertMsg());
                 ">
         Rock
     </button>
@@ -24,8 +24,7 @@ Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}
                 yourChoice = paper;
                 cpuChoice = (Math.floor(Math.random() * 3) + 1);
                 game(cnt, yourChoice, cpuChoice, cpuRes(cpuChoice), yScissors );
-                alert(`${printAlert(yourChoice,cpuChoice)}
-Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}`)
+                alert(alertMsg())
                ">
         Paper
     </button>
@@ -35,8 +34,7 @@ Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}
                 yourChoice = scissors;
                 cpuChoice = (Math.floor(Math.random() * 3) + 1);
                 game(cnt, yourChoice, cpuChoice, cpuRes(cpuChoice), yScissors );
-                alert(`${printAlert(yourChoice,cpuChoice)}
-Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}`)
+                alert(alertMsg())
                 ">
         Scissors
     </button>
@@ -49,98 +47,102 @@ Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}
     alert(` The game will start from zero point:
  Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}`)
     ">
-    Reset Scores
+        Reset Scores
     </button>
-
-    <script>
-        const rock = 3;
-        const scissors = 2;
-        const paper = 1
-
-        const yRock = "Rock";
-        const yPaper = "Paper";
-        const yScissors = "Scissors";
-
-        let cntWin = 0;
-        let cntLose = 0;
-        let cnt = 0;
-        let cntTie = 0;
-
-        const score = {
-            wins: 0,
-            losses: 0,
-            tie: 0,
-            gameOver: false
-        }
-
-        function game(cnt, yourChoice, cpuChoice, cpuResult, yResult) {
-            if (cnt < 6) {
-                if (yourChoice > cpuChoice) {
-                    cntWin++;
-                    score.wins += 1;
-                    console.log(`Your choice = ${yResult}`);
-                    console.log(`CPU choice = ${cpuResult}`);
-                    console.log('Your WIN')
-                } else if (yourChoice < cpuChoice) {
-                    cntLose++;
-                    score.losses += 1;
-                    console.log(`Your choice = ${yResult}`);
-                    console.log(`CPU choice = ${cpuResult}`);
-                    console.log('Your LOSE')
-                } else if (yourChoice === cpuChoice) {
-                    cntTie++;
-                    score.tie += 1;
-                    console.log(`Your choice = ${yResult}`);
-                    console.log(`CPU choice = ${cpuResult}`);
-                    console.log('TIE in the game')
-                }
-            } else if (cnt == 6) {
-                if (cntWin > cntLose) {
-                    console.log('Game OVER: Your WIN');
-                    console.log(`Yor result = + ${cntWin} points, CPU = - ${cntLose} points, tie = ${cntTie}`);
-                    return;
-                } else if (cntWin < cntLose) {
-                    console.log('Game OVER: Your LOSE');
-                    console.log(`Yor result = + ${cntWin} points, CPU = - ${cntLose} points, tie = ${cntTie}`);
-                    return;
-                } else {
-                    console.log('Game OVER: TIE');
-                    console.log(`Yor result = + ${cntWin} points, CPU = - ${cntLose} points, tie = ${cntTie}`);
-                }
-                score.gameOver = false;
-            }
-        }
-
-        function cpuRes(cpuChoice) {
-            let res;
-            if (cpuChoice === 3) {
-                res = 'Rock';
-            } else if (cpuChoice === 2) {
-                res = 'Scissors';
-            } else if (cpuChoice === 1) {
-                res = 'Paper';
-            }
-            return res;
-        }
-
-        function printAlert(yourPoints, cpuPoints) {
-            if (yourPoints > cpuPoints) {
-                return (`Your choice is ${yourPoints}, CPU choice is ${cpuPoints} so result is You WIN !!!`)
-            } else if (yourPoints < cpuPoints) {
-                return (`Your choice is ${yourPoints}, CPU choice is ${cpuPoints} so result is You LOSE ;()`)
-            } else if (yourPoints === cpuPoints) {
-                return (`Your choice is ${yourPoints}, CPU choice is ${cpuPoints} so result is TIE`)
-
-            }
-        }
-
-        function buttonClick(yourChoice) {
-            cnt++;
-            yourChoice = paper;
-            cpuChoice = (Math.floor(Math.random() * 3) + 1);
-        }
-    </script>
 </body>
-</head>
+
+<script>
+    const rock = 3;
+    const scissors = 2;
+    const paper = 1
+
+    const yRock = "Rock";
+    const yPaper = "Paper";
+    const yScissors = "Scissors";
+
+    let cntWin = 0;
+    let cntLose = 0;
+    let cnt = 0;
+    let cntTie = 0;
+
+    const score = {
+        wins: 0,
+        losses: 0,
+        tie: 0,
+        gameOver: false
+    }
+
+    function game(cnt, yourChoice, cpuChoice, cpuResult, yResult) {
+        if (cnt < 6) {
+            if (yourChoice > cpuChoice) {
+                cntWin++;
+                score.wins += 1;
+                console.log(`Your choice = ${yResult}`);
+                console.log(`CPU choice = ${cpuResult}`);
+                console.log('Your WIN')
+            } else if (yourChoice < cpuChoice) {
+                cntLose++;
+                score.losses += 1;
+                console.log(`Your choice = ${yResult}`);
+                console.log(`CPU choice = ${cpuResult}`);
+                console.log('Your LOSE')
+            } else if (yourChoice === cpuChoice) {
+                cntTie++;
+                score.tie += 1;
+                console.log(`Your choice = ${yResult}`);
+                console.log(`CPU choice = ${cpuResult}`);
+                console.log('TIE in the game')
+            }
+        } else if (cnt == 6) {
+            if (cntWin > cntLose) {
+                console.log('Game OVER: Your WIN');
+                console.log(`Yor result = + ${cntWin} points, CPU = - ${cntLose} points, tie = ${cntTie}`);
+                return;
+            } else if (cntWin < cntLose) {
+                console.log('Game OVER: Your LOSE');
+                console.log(`Yor result = + ${cntWin} points, CPU = - ${cntLose} points, tie = ${cntTie}`);
+                return;
+            } else {
+                console.log('Game OVER: TIE');
+                console.log(`Yor result = + ${cntWin} points, CPU = - ${cntLose} points, tie = ${cntTie}`);
+            }
+            score.gameOver = false;
+        }
+    }
+
+    function cpuRes(cpuChoice) {
+        let res;
+        if (cpuChoice === 3) {
+            res = 'Rock';
+        } else if (cpuChoice === 2) {
+            res = 'Scissors';
+        } else if (cpuChoice === 1) {
+            res = 'Paper';
+        }
+        return res;
+    }
+
+    function printAlert(yourPoints, cpuPoints) {
+        if (yourPoints > cpuPoints) {
+            return (`Your choice is ${yourPoints}, CPU choice is ${cpuPoints} so result is You WIN !!!`)
+        } else if (yourPoints < cpuPoints) {
+            return (`Your choice is ${yourPoints}, CPU choice is ${cpuPoints} so result is You LOSE ;()`)
+        } else if (yourPoints === cpuPoints) {
+            return (`Your choice is ${yourPoints}, CPU choice is ${cpuPoints} so result is TIE`)
+
+        }
+    }
+
+    function buttonClick(yourChoice) {
+        cnt++;
+        yourChoice = paper;
+        cpuChoice = (Math.floor(Math.random() * 3) + 1);
+    }
+
+    function alertMsg() {
+        return `${printAlert(yourChoice, cpuChoice)}
+            Wins: ${score.wins}; Losses: ${score.losses}; Tie: ${score.tie}; Counter: ${cnt}`
+    }
+</script>
 
 </html>
