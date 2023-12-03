@@ -1,4 +1,4 @@
-let idx = 1;
+let idxA = 1;
 let res = [];
 const choice = 3;
 const digitsCnt = 6;
@@ -9,36 +9,41 @@ printArr(res);
 printArrLine(res);
 
 function generateMassive() {
+    let arr;
     for (let j = 0; j < choice; j++) {
-        let arr = [];
-
+        arr = [];
         for (let i = 0; i < digitsCnt; i++) {
-           let el = getEl();
-            if (arr.includes(el) && res.includes(el)) {
+            let el = getEl();
+            if (arr.includes(el) || res.includes(el)) {
                 i--;
             } else {
                 arr.push(el);
             }
         }
-         res.push(arr);
-    }
-}
-
-function generateMassive1() {
-    for (let j = 0; j < choice; j++) {
-        let arr = [];
-        for (let i = 1; i <= digitsCnt; i++) {
-            getEl();
-            removeDuplicatedEl(el, arr);
-        }
         res.push(arr);
     }
+    arr.sort();
 }
 
+// function generateMassive1() {
+//     for (let j = 0; j < choice; j++) {
+//         let arr = [];
+//         for (let i = 1; i <= digitsCnt; i++) {
+//             getEl();
+//             removeDuplicatedEl(el, arr);
+//         }
+//         res.push(arr);
+//     }
+// }
+
 function removeDuplicatedEl(el, arr) {
-    while (arr.length <= 6)
-        if (arr.includes(el)) {
-            el = getEl();
+    let newEl;
+    let cnt = 0;
+    for (let i = 0; i < arr.length; i++)
+        if (arr[i] === el) {
+            newEl = getEl();
+            arr[i] = newEl;
+            //arr.splice(idx1, idx1 - 1, newEl);
         } else arr.push(el);
 }
 
@@ -52,7 +57,7 @@ function printResult(arr) {
 
 function printArr(arr) {
     for (let i = 0; i < arr.length; i++) {
-        console.log(`${idx++}: ${arr[i]} `);
+        console.log(`${idxA++}: ${arr[i]} `);
     }
     printNewLine();
 }
@@ -64,6 +69,6 @@ function printArrLine(arr) {
 
 function printNewLine() { console.log(` `) }
 
-function isElExistInArr(massive, el){
+function isElExistInArr(massive, el) {
     return (massive.includes(el));
 }
