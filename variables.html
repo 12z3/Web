@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+// За да върви адекватно JS спри addOns на Kaspersky в Brave:
+<br>
+https://bobbyhadz.com/blog/unchecked-runtime-lasterror-the-message-port-closed-before //
+
+    <title>Variables</title>
+
+</head>
+
+<body>
+
+    <script>
+        /*
+        let - променлива чиято стойност може да се променя ;)
+        var (= let) - променлива чиято стойност може да се променя ;) Стара концепция
+        const -  променлива, която е константа ;)
+
+
+        const се използва по подразбиране при декларирането на променливи. Ако тази променлива ще се променя се декларира с let.
+
+        typeof var1 - показва типа на променливата var1
+        */
+
+        let var1 = 3;
+        const res = 'Result';
+        let var3 = 5;
+
+        console.log(`var1 = ${var1};`);
+        console.log(`var3 = ${var3};`);
+
+        const calculation = var1 * var3;
+        console.log(`${res} = ${calculation};`)
+        console.log(`${res}: ${var1} + ${var3} = ${calculation}`);
+
+    </script>
+
+</body>
+
+</html>
