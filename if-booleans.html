@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style></style>
+
+</head><body>
+    <script>
+
+        //console.log(3 < 5);
+        //console.log(3 === 5);
+
+        // ==  срявнява ги като 1.типове и 2.стойностти
+        // === Integer.ParseInt(String) = int -> int = String при еднакви стойностти;
+
+        // Syntax: if(){}
+
+        const a = 3;
+        const b = '3.0';
+        const c = 11;
+
+        const msg1 = `Is (${a} - ${typeof a})  == (${b} - ${typeof b})?`
+        const msg2 = `... or is (${a} - ${typeof a}) === (${b} - ${typeof b})?`
+
+        console.log(`(a = ${a}) is typeOf -> ${typeof a}`);
+        console.log(`(b = ${b}) is typeOf -> ${typeof b}`);
+
+        console.log(msg1);
+        console.log(a === b);     // false
+        console.log(msg2);
+        console.log(a == b);      // true
+
+        if (a > c) {
+            console.log(`(${a > c}) ${a} > ${c}`)
+        } else if (a === c) {
+            console.log(`(${a === c}) ${a} = ${c}`)
+        } else {
+            console.log(`(${a < c}) ${a} < ${c}`)
+        };
+
+
+        /*
+                    Истински и "Фалшиви" стойностти:
+            truly === TRUE: Всичко което е различно от  тези от долу
+            folly === FALSE: 0, NaN, null, "" undefined, false === FALSE (всички като булева променлива имат стойност false),
+
+            if(!0)->(true = има число) = число разично от нула
+            if(!NaN)->(true = има стойност); NaN - няма стойност
+
+        */
+
+        const x = 5;
+        if(x){
+            console.log("There is some in there..")
+        }
+
+
+        0 ? 'truthy':'falsy';  // и така е валидно
+        const res = 0 ? 'truthy':'falsy';
+        console.log(res);
+
+
+        false && 'hi';
+        const res1 = false && 'hi';  // if(condition){res1 = 'hi'}
+        console.log(res);
+
+       // const currency = 'EUR' || 'USD';
+       const currency = undefined || 'USD';  // false - value || true - value = true - value
+       console.log(currency);
+    </script>
+</body>
+</head>
+
+</html>
